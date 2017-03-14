@@ -5,12 +5,20 @@
 const max =  10; //max value for both X & Y
 const min = -10; //min value for both X & Y
 
-const matrix = new Array();
+const coord = new Array();
 
 for (let i = min; i <= max;i++) {
- matrix[i]= new Array();
+ coord[i]= new Array();
  for (let j = min; j <= max;j++) {
-  matrix[i][j]=0;
+ 	coord[i][j] = {
+  					Event_ID: rand(1, 999),
+  					Number_of_Tickets: rand(100, 10000),
+  					Ticket_Price: rand(10, 100)
+ 				};
  }
+
 }
+
+//random number generator
+function rand (a, b){return Math.floor((Math.random()*b)+a)};
 
