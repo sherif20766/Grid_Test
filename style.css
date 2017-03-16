@@ -1,0 +1,28 @@
+.container{
+	padding-top: 10vh;
+}
+
+h2{
+	padding-top: 5vh;
+	text-align: left
+}
+
+p{
+
+	font-size: 20px;
+	text-align: left;
+}
+
+.btn {
+	width: 20vh;
+	height: 10vh;
+}
+
+ul{
+	padding-top: 10vh
+}
+li{	
+	padding-right: 2vw;
+	font-size: 25px;
+	list-style-type: none;
+}
