@@ -26,7 +26,7 @@ const findUser = () => {
 
 	store.map(function(x){
 		// displays results to console for reference
-		console.log(`Event: ${x.Event_ID} - Price: $${x.Ticket_Price}`);
+		console.log(`Event Location ID: ${x.Event_ID} - Price: $${x.Ticket_Price}`);
 	});
 
 	//displays final results 
@@ -35,7 +35,7 @@ const findUser = () => {
 
 //show closest events
 const closest = (x, y) => {
-
+store = [];
 	//iterate in both directions
 		for(let i=0;i<3;i++){
 			for(let j=0;j<3;j++){
@@ -59,6 +59,7 @@ const closest = (x, y) => {
 
 //print to screen
 const view = () => {
+
     let ul = document.querySelector('ul');
     ul.innerHTML = '';
     store.sort((a,b)=>(Math.pow(a.Event_ID[0],2)+Math.pow(b.Event_ID[0],2))-(Math.pow(b.Event_ID[0],2) + Math.pow(b.Event_ID[1],2)))  //sort order of closest
@@ -66,7 +67,7 @@ const view = () => {
     	 //isolate closest 5
     	 .slice(0,5).forEach(x => {
        		let li = document.createElement('li');
-       		li.textContent = `Event: ${x.Event_ID} - Price: $${x.Ticket_Price}`
+       		li.textContent = `Event Location ID: ${x.Event_ID} - Price: $${x.Ticket_Price}`
       		ul.appendChild(li);
     	});
 } 
