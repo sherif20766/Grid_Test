@@ -73,10 +73,10 @@ const view = () => {
   		 })
     	 .slice(0,5)
     	 .forEach(x => {
-							       	let li = document.createElement('li');
-							       	li.textContent = `Event Location ID: ${x.Event_ID} - Price: $${x.Ticket_Price}`
-							      	ul.appendChild(li);
-							      });
+				       	let li = document.createElement('li');
+				       	li.textContent = `Event Location ID: ${x.Event_ID} - Price: $${x.Ticket_Price}`
+				      	ul.appendChild(li);
+					   });
 } 
 
 //create grid with randomly generated event ids, ticket numbers & ticket prices
