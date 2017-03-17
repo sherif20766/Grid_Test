@@ -1,5 +1,4 @@
 
-
 const max =  10; //max value for both X & Y Axes
 const min = -10; //min value for both X & Y Axes
 
@@ -35,17 +34,17 @@ const findUser = () => {
 const closest = (x, y) => {
 	store = [];
 
-	//iterate in both directions
-		for(let i=0;i<4;i++){
-			for(let j=0;j<4;j++){
+	//iterate in both directions, cycling through all events
+		for(let i=0;i<20;i++){
+			for(let j=0;j<20;j++){
 				if(((user[0]+i)<=10) && ((user[1]+i) <=10)) {		
 					store.push(coord[user[0]+i][user[1]+j]);		
 				}
 			}
 		}
 
-		for(let l=0;l>-4;l--){
-			for(let m=0;m>-4;m--){
+		for(let l=0;l>-20;l--){
+			for(let m=0;m>-20;m--){
 				if(((user[0]+l)>=-10) && ((user[1]+l) >=-10))    {			
 					store.push(coord[user[0]+l][user[1]+m]);
 				}
@@ -58,14 +57,22 @@ const view = () => {
 
    let ul = document.querySelector('ul');
     ul.innerHTML = '';
+    
     //filter through, sort and isolate closest 5
-    store.filter(x=> x!=undefined)  //filter out undefined values, i.e values > 10 || <-10
-    	 .filter(x=> x.Event!=0)	//filter 0 events, i.e locations without events
-    	 .filter((item, index, inputArray )=>inputArray.indexOf(item) == index)  //remove dulplicate values
-    	//.sort((a,b)=>(Math.pow(a.Event_ID[0],2)+Math.pow(b.Event_ID[0],2))-(Math.pow(b.Event_ID[0],2) + Math.pow(b.Event_ID[1],2)))
-    	 .sort((a,b)=> Math.sqrt(  Math.pow(a.Event_ID[0] - b.Event_ID[0] ,2) + Math.pow(a.Event_ID[1] - b.Event_ID[1] ,2)      )    )
-  		 //.sort((a,b)=> Math.abs(b.Event_ID[0]-a.Event_ID[0]) + Math.abs(b.Event_ID[1]-a.Event_ID[0]))
-    	 .slice(0,5).forEach(x => {
+    store.filter(x=> x!=undefined)  			//filter out undefined values, i.e values > 10 || <-10
+    	 .filter(x=> x.Event!=0)				//filter 0 events, i.e locations without events
+    	 .filter((item, index, inputArray )=>inputArray.indexOf(item) == index)  		//remove dulplicate values
+  		 .sort((a,b)=>{
+  		 	let x = [user[0] , user[1]];
+  		 	let y = [a.Event_ID[0], a.Event_ID[1]];					//sort by manhattan distance
+  		 	let z = [b.Event_ID[0], b.Event_ID[1]]	
+
+  		 	let d = Math.abs(x[0] - y[0]) + Math.abs(x[1] - y[1]) 
+  		 	let e = Math.abs(x[0] - z[0]) + Math.abs(x[1] - z[1])
+  		 	return d-e;
+  		 })
+    	 .slice(0,5)
+    	 .forEach(x => {
 							       	let li = document.createElement('li');
 							       	li.textContent = `Event Location ID: ${x.Event_ID} - Price: $${x.Ticket_Price}`
 							      	ul.appendChild(li);
