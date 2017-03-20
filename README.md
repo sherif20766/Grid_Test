@@ -22,9 +22,9 @@
 Example Program Run
  
 Please Input Coordinates:
- 
+
 > 4,2
- 
+
 Closest Events to (4,2):
  
 Event 003 - $30.29, Distance 3
