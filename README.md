@@ -1,14 +1,12 @@
 
  
-# Requirements
- 
+## Requirements
 - Code in any language you like but please provide clear instructions on how we should build & run your code.
 - Please use any source control system you like, and send us a link (or if you prefer just a zip of your project).
 - The first requirement is your code meets the requirements.
 - Secondary requirements are whether your code is idiomatic for the language being coded in, easy to read, and clearly laid out.
  
-# Scenario
- 
+## Scenario
 - Your program should randomly generate seed data.
 - Your program should operate in a world that ranges from -10 to +10 (Y axis), and -10 to +10 (X axis).
 - Your program should assume that each co-ordinate can hold a maximum of one event.
@@ -17,8 +15,7 @@
 - Each ticket has a non-zero price, expressed in US Dollars.
 - The distance between two points should be computed as the Manhattan distance.
  
-# Instructions
- 
+## Instructions
 - You are required to write a program which accepts a user location as a pair of co-ordinates, 
   and returns a list of the five closest events, along with the cheapest ticket price for each event.
  
